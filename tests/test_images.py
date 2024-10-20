@@ -6,10 +6,10 @@ from PIL import Image
 @pytest.mark.parametrize(
     "path, expected",
     [
-        ("data/1_pixel.jpg", [255]),
-        ("data/empty_black.jpg", [0] * 256),
-        ("data/empty_white.jpg", [255] * 256),
-        ("data/high_contrast.jpg", [255] * 16 * 7 + [0] * 16 * 2 + [255] * 16 * 7),
+        ("tests/data/1_pixel.jpg", [255]),
+        ("tests/data/empty_black.jpg", [0] * 256),
+        ("tests/data/empty_white.jpg", [255] * 256),
+        ("tests/data/high_contrast.jpg", [255] * 16 * 7 + [0] * 16 * 2 + [255] * 16 * 7),
     ],
 )
 def test_image_binarization(path, expected):
@@ -21,17 +21,17 @@ def test_image_binarization(path, expected):
 @pytest.mark.parametrize(
     "path",
     [
-        ("data/1_pixel.jpg"),
-        ("data/empty_black.jpg"),
-        ("data/empty_white.jpg"),
-        ("data/gradient.jpg"),
-        ("data/high_contrast.jpg"),
-        ("data/high_contrast_color.jpg"),
-        ("data/monotonic.jpg"),
-        ("data/noise.jpg"),
-        ("data/noised_color.jpg"),
-        ("data/non_square.jpg"),
-        ("data/text.jpg"),
+        ("tests/data/1_pixel.jpg"),
+        ("tests/data/empty_black.jpg"),
+        ("tests/data/empty_white.jpg"),
+        ("tests/data/gradient.jpg"),
+        ("tests/data/high_contrast.jpg"),
+        ("tests/data/high_contrast_color.jpg"),
+        ("tests/data/monotonic.jpg"),
+        ("tests/data/noise.jpg"),
+        ("tests/data/noised_color.jpg"),
+        ("tests/data/non_square.jpg"),
+        ("tests/data/text.jpg"),
     ],
 )
 def test_picture_proccessing(path):
