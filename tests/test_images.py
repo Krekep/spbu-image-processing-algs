@@ -9,7 +9,10 @@ from PIL import Image
         ("tests/data/1_pixel.jpg", [255]),
         ("tests/data/empty_black.jpg", [0] * 256),
         ("tests/data/empty_white.jpg", [255] * 256),
-        ("tests/data/high_contrast.jpg", [255] * 16 * 7 + [0] * 16 * 2 + [255] * 16 * 7),
+        (
+            "tests/data/high_contrast.jpg",
+            [255] * 16 * 7 + [0] * 16 * 2 + [255] * 16 * 7,
+        ),
     ],
 )
 def test_image_binarization(path, expected):
