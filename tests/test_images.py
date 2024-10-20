@@ -17,7 +17,8 @@ from PIL import Image
 )
 def test_image_binarization(path, expected):
     image = Image.open(path)
-    actual_binary = otsu_method(image)
+    rgb_data = list(image.getdata())
+    actual_binary = otsu_method(rgb_data)
     assert actual_binary == expected
 
 
@@ -39,7 +40,8 @@ def test_image_binarization(path, expected):
 )
 def test_picture_proccessing(path):
     image = Image.open(path)
-    actual_binary = otsu_method(image)
+    rgb_data = list(image.getdata())
+    actual_binary = otsu_method(rgb_data)
     assert isinstance(
         actual_binary, list
     )  # Мы действительно получаем список из метода оцу

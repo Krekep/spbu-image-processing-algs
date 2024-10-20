@@ -8,7 +8,8 @@ from PIL import Image
 
 
 image = Image.open("data/1.jpg")  # открываем картинку
-binary_image = otsu_method(image)  # проводим бинаризацию с помощью метода отсу
+rgb_data = list(image.getdata())  # получаем плоский список всех пикселей изображения
+binary_image = otsu_method(rgb_data)  # проводим бинаризацию с помощью метода отсу
 binary_image = image_from_datalist(
     binary_image, image.width, image.height
 )  # создаём новую картинку из бинарной

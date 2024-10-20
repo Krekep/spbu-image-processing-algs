@@ -5,14 +5,14 @@ from project.image_characteristics import get_brightness_histogram
 from project.image_convertions import convert_to_gray, convert_pixel_to_gray
 
 
-def otsu_method(image: Image.Image, levels: int = 256) -> list[int]:
+def otsu_method(rgb_data: list[tuple[int, int, int]], levels: int = 256) -> list[int]:
     """
     This functions provides Otsu method for automatic binarization
 
     Parameters
     ----------
-    image: Image.Image
-        Image to process
+    rgb_data: list[tuple[int, int, int]]
+        Flatten list of rgb pixels
     levels: int
         Levels of brightness
     Returns
@@ -20,10 +20,7 @@ def otsu_method(image: Image.Image, levels: int = 256) -> list[int]:
     binary_image: list[int]
         Flatten list with binary pixels
     """
-    height = image.height
-    width = image.width
-    number_of_pixels = width * height
-    rgb_data = list(image.getdata())
+    number_of_pixels = len(rgb_data)
 
     # 0 шаг --- перевод изображения в серое
     gray_data = convert_to_gray(rgb_data)
