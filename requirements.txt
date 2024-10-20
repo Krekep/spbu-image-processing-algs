@@ -1,5 +1,5 @@
 black
+matplotlib
+pillow
 pre-commit
 pytest
-pillow
-matplotlib

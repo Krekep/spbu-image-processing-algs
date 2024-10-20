@@ -25,7 +25,9 @@ def transform_image_to_matrix(image: Image.Image) -> list[list[int]]:
     return res
 
 
-def transform_datalist_to_matrix(image: list[int], width: int, height: int) -> list[list[int]]:
+def transform_datalist_to_matrix(
+    image: list[int], width: int, height: int
+) -> list[list[int]]:
     """
     This function transform flatten list of pixels to a matrix of pixel
 
@@ -68,7 +70,7 @@ def image_from_datalist(data: list[int], width: int, height: int) -> Image.Image
     """
     matrix = transform_datalist_to_matrix(data, width, height)
 
-    img = Image.new('RGB', (width, height))
+    img = Image.new("RGB", (width, height))
 
     for x, row in enumerate(matrix):
         for y, value in enumerate(row):

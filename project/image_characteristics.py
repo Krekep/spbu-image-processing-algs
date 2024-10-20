@@ -1,4 +1,6 @@
-def get_brightness_histogram(brightness_values: list[int], brightness_levels: int = 256) -> list[tuple[int, int]]:
+def get_brightness_histogram(
+    brightness_values: list[int], brightness_levels: int = 256
+) -> list[tuple[int, int]]:
     """
     This functions build brightness histogram from flatten list of gray pixels
 

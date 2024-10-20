@@ -47,12 +47,18 @@ def otsu_method(image: Image.Image, levels: int = 256) -> list[int]:
         # Вероятности классов
         omega_0 = sum(first_part)
         omega_1 = sum(second_part)
-        if omega_0 == 0 or omega_1 == 0:  # Один из классов отсутствует, его вероятность нулевая
+        if (
+            omega_0 == 0 or omega_1 == 0
+        ):  # Один из классов отсутствует, его вероятность нулевая
             continue
 
         # Средние яркости классов
         nu_0 = 1 / omega_0 * sum(map(lambda i, p_i: i * p_i, range(t), first_part))
-        nu_1 = 1 / omega_1 * sum(map(lambda i, p_i: i * p_i, range(t, levels), second_part))
+        nu_1 = (
+            1
+            / omega_1
+            * sum(map(lambda i, p_i: i * p_i, range(t, levels), second_part))
+        )
 
         # Общая средняя яркость
         nu_t = omega_0 * nu_0 + omega_1 * nu_1
@@ -71,7 +77,9 @@ def otsu_method(image: Image.Image, levels: int = 256) -> list[int]:
     return binary_image_m
 
 
-def binarization(rgb_data: list[tuple[int, int, int]], threshold: int = 128) -> list[int]:
+def binarization(
+    rgb_data: list[tuple[int, int, int]], threshold: int = 128
+) -> list[int]:
     """
     Converting flatten list of RGB pixels to binary image.
 
@@ -87,7 +95,4 @@ def binarization(rgb_data: list[tuple[int, int, int]], threshold: int = 128) -> 
     pixels:
         Grayscale pixels
     """
-    return [
-        0 if convert_pixel_to_gray(p) <= threshold else 255
-        for p in rgb_data
-    ]
+    return [0 if convert_pixel_to_gray(p) <= threshold else 255 for p in rgb_data]

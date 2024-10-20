@@ -9,7 +9,9 @@ from PIL import Image
 
 image = Image.open("data/1.jpg")  # открываем картинку
 binary_image = otsu_method(image)  # проводим бинаризацию с помощью метода отсу
-binary_image = image_from_datalist(binary_image, image.width, image.height)  # создаём новую картинку из бинарной
+binary_image = image_from_datalist(
+    binary_image, image.width, image.height
+)  # создаём новую картинку из бинарной
 binary_image.show()  # показываем результат бинаризации
 # binary_image.save("test.png")  # сохраняем в test.png
 
